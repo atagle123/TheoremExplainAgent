@@ -1,8 +1,4 @@
 import os
-from dotenv import load_dotenv
-
-# Load environment variables from .env file
-load_dotenv()
 
 class Config:
     OUTPUT_DIR = "output"
@@ -13,8 +9,8 @@ class Config:
     EMBEDDING_MODEL = "azure/text-embedding-3-large"
     
     # Kokoro TTS configurations
-    KOKORO_MODEL_PATH = os.getenv('KOKORO_MODEL_PATH')
-    KOKORO_VOICES_PATH = os.getenv('KOKORO_VOICES_PATH')
-    KOKORO_DEFAULT_VOICE = os.getenv('KOKORO_DEFAULT_VOICE')
-    KOKORO_DEFAULT_SPEED = float(os.getenv('KOKORO_DEFAULT_SPEED', '1.0'))
-    KOKORO_DEFAULT_LANG = os.getenv('KOKORO_DEFAULT_LANG') 
+    KOKORO_MODEL_PATH="models/kokoro-v0_19.onnx"
+    KOKORO_VOICES_PATH="models/voices.bin"
+    KOKORO_DEFAULT_VOICE="af"
+    KOKORO_DEFAULT_SPEED="1.0"
+    KOKORO_DEFAULT_LANG="en-us"
