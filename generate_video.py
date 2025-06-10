@@ -7,7 +7,6 @@ import argparse
 import glob
 from PIL import Image
 import re
-from dotenv import load_dotenv
 import asyncio
 import uuid # Import uuid for generating trace_id
 
@@ -33,8 +32,6 @@ from task_generator.prompts_raw import (_code_font_size, _code_disable, _code_li
 allowed_models_path = os.path.join(os.path.dirname(__file__), 'src', 'utils', 'allowed_models.json')
 with open(allowed_models_path, 'r') as f:
     allowed_models = json.load(f).get("allowed_models", [])
-
-load_dotenv(override=True)
 
 class VideoGenerator:
     """
