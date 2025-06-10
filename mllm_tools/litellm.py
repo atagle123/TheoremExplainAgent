@@ -22,6 +22,7 @@ class LiteLLMWrapper:
         print_cost: bool = False,
         verbose: bool = False,
         use_langfuse: bool = True,
+        api_base: str = "http://localhost:11434",
     ):
         """
         Initialize the LiteLLM wrapper
@@ -38,6 +39,7 @@ class LiteLLMWrapper:
         self.print_cost = print_cost
         self.verbose = verbose
         self.accumulated_cost = 0
+        self.api_base = api_base
 
         if self.verbose:
             os.environ['LITELLM_LOG'] = 'DEBUG'
@@ -170,7 +172,8 @@ class LiteLLMWrapper:
                     messages=formatted_messages,
                     temperature=self.temperature,
                     metadata=metadata,
-                    max_retries=99
+                    max_retries=99,
+                    api_base = self.api_base
                 )
             if self.print_cost:
                 # pass your response from completion to completion_cost
