@@ -9,7 +9,7 @@ class ConfigDefaults:
     only_gen_vid: bool = False
     only_combine: bool = False
     peek_existing_videos: bool = False
-    output_dir: str = "output/my_exp_name"
+    output_dir: str = "output"
     theorems_path: Optional[str] = None
     sample_size: Optional[int] = None
     verbose: bool = False
