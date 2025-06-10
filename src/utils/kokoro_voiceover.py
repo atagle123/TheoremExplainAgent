@@ -12,18 +12,18 @@ from manim_voiceover.services.base import SpeechService
 from kokoro_onnx import Kokoro
 from manim_voiceover.helper import remove_bookmarks, wav2mp3
 from scipy.io.wavfile import write as write_wav
-from src.config.config import Config
+from src.config.config import ConfigDefaults
 
 
 class KokoroService(SpeechService):
     """Speech service class for kokoro_self (using text_to_speech via Kokoro ONNX)."""
 
     def __init__(self, engine=None, 
-                 model_path: str = Config.KOKORO_MODEL_PATH,
-                 voices_path: str = Config.KOKORO_VOICES_PATH,
-                 voice: str = Config.KOKORO_DEFAULT_VOICE,
-                 speed: float = Config.KOKORO_DEFAULT_SPEED,
-                 lang: str = Config.KOKORO_DEFAULT_LANG,
+                 model_path: str = ConfigDefaults.KOKORO_MODEL_PATH,
+                 voices_path: str = ConfigDefaults.KOKORO_VOICES_PATH,
+                 voice: str = ConfigDefaults.KOKORO_DEFAULT_VOICE,
+                 speed: float = ConfigDefaults.KOKORO_DEFAULT_SPEED,
+                 lang: str = ConfigDefaults.KOKORO_DEFAULT_LANG,
                  **kwargs):
         self.kokoro = Kokoro(model_path, voices_path)
         self.voice = voice

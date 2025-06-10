@@ -1,8 +1,7 @@
 import os
 from dataclasses import dataclass, field
 from typing import Optional
-
-
+    
 @dataclass
 class ConfigDefaults:
     model: str = "anthropic/claude-3-5-sonnet-20240620"
