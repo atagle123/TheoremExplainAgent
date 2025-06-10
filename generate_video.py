@@ -19,7 +19,7 @@ from src.core.video_planner import VideoPlanner
 from src.core.code_generator import CodeGenerator
 from src.core.video_renderer import VideoRenderer
 from src.utils.utils import _print_response, _extract_code, extract_xml # Import utility functions
-from src.config.config import Config # Import Config class
+from src.config.config import ConfigDefaults # Import Config class
 
 # Video parsing
 from src.core.parse_video import (
@@ -675,23 +675,23 @@ if __name__ == "__main__":
     parser.add_argument('--only_gen_vid', action='store_true', help='Only generate videos to existing plans')
     parser.add_argument('--only_combine', action='store_true', help='Only combine videos')
     parser.add_argument('--peek_existing_videos', '--peek', action='store_true', help='Peek at existing videos')
-    parser.add_argument('--output_dir', type=str, default=Config.OUTPUT_DIR, help='Output directory') # Use Config
+    parser.add_argument('--output_dir', type=str, default=ConfigDefaults.OUTPUT_DIR, help='Output directory') # Use Config
     parser.add_argument('--theorems_path', type=str, default=None, help='Path to theorems json file')
     parser.add_argument('--sample_size', '--sample', type=int, default=None, help='Number of theorems to sample')
     parser.add_argument('--verbose', action='store_true', help='Print verbose output')
     parser.add_argument('--max_retries', type=int, default=5, help='Maximum number of retries for code generation')
     parser.add_argument('--use_rag', '--rag', action='store_true', help='Use Retrieval Augmented Generation')
     parser.add_argument('--use_visual_fix_code','--visual_fix_code', action='store_true', help='Use VLM to fix code with rendered visuals')
-    parser.add_argument('--chroma_db_path', type=str, default=Config.CHROMA_DB_PATH, help="Path to Chroma DB") # Use Config
-    parser.add_argument('--manim_docs_path', type=str, default=Config.MANIM_DOCS_PATH, help="Path to manim docs") # Use Config
+    parser.add_argument('--chroma_db_path', type=str, default=ConfigDefaults.CHROMA_DB_PATH, help="Path to Chroma DB") # Use Config
+    parser.add_argument('--manim_docs_path', type=str, default=ConfigDefaults.MANIM_DOCS_PATH, help="Path to manim docs") # Use Config
     parser.add_argument('--embedding_model', type=str,
-                       default=Config.EMBEDDING_MODEL, # Use Config
+                       default=ConfigDefaults.EMBEDDING_MODEL, # Use Config
                        choices=["azure/text-embedding-3-large", "vertex_ai/text-embedding-005"],
                        help='Select the embedding model to use')
     parser.add_argument('--use_context_learning', action='store_true',
                        help='Use context learning with example Manim code')
     parser.add_argument('--context_learning_path', type=str,
-                       default=Config.CONTEXT_LEARNING_PATH, # Use Config
+                       default=ConfigDefaults.CONTEXT_LEARNING_PATH, # Use Config
                        help='Path to context learning examples')
     parser.add_argument('--use_langfuse', action='store_true',
                        help='Enable Langfuse logging')
